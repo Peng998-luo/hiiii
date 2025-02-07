@@ -1,0 +1,209 @@
+html, body {
+    overflow: hidden; /* Prevents scrolling when button moves */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bg_video {
+    position: fixed;
+    width: 100%;
+}
+
+#container {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    height: 100vh;
+    width: 700px;
+}
+
+img {
+    width: 250px;
+}
+
+#picture {
+    position: absolute;
+    z-index: 1;
+    border-radius: 10%;
+    bottom: 400px;
+}
+
+.msg {
+    margin: 0;
+}
+
+#tmsg {
+    position: absolute;
+    width: 800px;
+    z-index: 3;
+    bottom: 680px;
+}
+
+#bmsg {
+    position: absolute;
+    width: 600px;
+    bottom: 270px;
+}
+
+#buttons {
+    position: absolute;
+    bottom: 170px;
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center;
+    width: 100%;
+    gap: 30px; /* Space between buttons */
+}
+
+button {
+    background-color: white;
+    width: 170px;
+    height: 70px;
+    font-size: 30px;
+    margin: 0; /* Remove margin to avoid spacing issues */
+    border-radius: 16px;
+    border: 8px solid #FBC6FC;
+    font-weight: bold;
+    color: #FBC6FC;
+    position: static; /* Ensure buttons are not absolutely positioned by default */
+}
+
+button:active {
+    background-color: #edb2ee;
+    color: white;
+    box-shadow: 0 5px #fadffa;
+    transform: translateY(4px);
+}
+
+#no {
+    position: relative; /* Ensures it moves relative to the viewport */
+    background-color: white;
+    width: 170px;
+    height: 70px;
+    font-size: 30px;
+    border-radius: 16px;
+    border: 8px solid #FBC6FC;
+    font-weight: bold;
+    color: #FBC6FC;
+    transition: left 0.2s ease-out, top 0.2s ease-out; /* Smooth movement */
+    z-index: 9999; /* Ensure it's always above other elements */
+}
+
+#sub {
+    position: absolute;
+    bottom: 0;
+    margin: 20px;
+    width: 570px;
+}
+
+/* yes.html styling */
+
+#yesmov {
+    position: fixed;
+    width: 100%;
+}
+
+#yesContent{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#yesbtn{
+    background-color: white;
+    width: 300px;
+    height: 70px;
+    font-size: 30px;
+    margin: 10px;
+    border-radius: 16px;
+    border: 8px solid #FBC6FC;
+    font-weight: bold;
+    color: #FBC6FC;
+}
+
+#yesimg{
+    width: 1000px;
+}
+
+/* intermediate */
+
+#iContainer{
+    border: 8px dotted #edb2ee;
+    border-radius: 16px;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fadffa;
+}
+
+#iText img {
+    width: 500px;
+    margin: 0;
+}
+
+#iContainer button {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 2s forwards;
+    width: 100%;
+    margin-top: 50px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* KESHII */
+
+#kbody {
+    background-color: #fadffa;
+}
+
+#kdiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
+    gap: 50px;
+}
+
+#keshiTxt {
+    opacity: 0;
+    width: 500px;
+    top: 0;
+    animation: fadeIn 1s ease-in-out 1s forwards;
+}
+
+#tsKeshi {
+    opacity: 0;
+    width: 300px;
+    animation: fadeIn 1s ease-in-out 1s forwards;
+}
+
+#yay {
+    opacity: 0;
+    width: 1000px;
+    animation: fadeIn 1s ease-in-out 2s forwards;
+    margin: -50px;
+}
+
+#lastmsg {
+    opacity: 0;
+    color: white;
+    font-weight: bolder;
+    font-size: 30px;
+    animation: fadeIn 1s ease-in-out 6s forwards;
+}

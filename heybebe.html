@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hey bebe</title>
+    <link rel="stylesheet" href="./card.css">
+</head>
+
+<html>
+    <body>
+        <video autoplay muted loop id="bg_video">
+            <source src="assets/heart.mov" type="video/mp4">
+        </video>
+
+        <div id="container">
+            <img class="msg" id="tmsg" src="assets/topmsg.png" alt="txt">
+            <img id="picture" src="assets/bright.jpg" alt="bright girl">
+            <img class="msg" id="bmsg" src="assets/btmmsg.png" alt="txt">
+            <div id="buttons">
+                <button id="yes" onclick="window.location='yes.html'">YES</button>
+                <button id="no">NO</button>
+            </div>
+            <img id="sub" src="assets/sub/line_1.png" alt="subtitle">
+        </div>
+
+        <script>
+            const images = [
+                'assets/bright.jpg',
+                'assets/cheeky.jpg',
+                'assets/kid.jpg',
+                'assets/sad.jpg',
+                'assets/side_eye.jpg',
+                'assets/me.jpg',
+                'assets/foot.jpg',
+                'assets/witch.jpg',
+                'assets/ks.jpg',
+                'assets/im_sad.jpg',
+            ];
+
+            const subtitles = [
+                'assets/sub/line_1.png',
+                'assets/sub/line_2.png',
+                'assets/sub/line_3.png',
+                'assets/sub/line_4.png',
+                'assets/sub/line_5.png',
+                'assets/sub/tryagain.png',
+                'assets/sub/nope.png',
+                'assets/sub/wrong.png',
+                'assets/sub/hehe.png',
+                'assets/sub/final.png',
+                'assets/sub/please.png',
+            ];
+
+            let currentImage = 0;
+            let click = 0;
+
+            const noBtn = document.getElementById('no');
+            const imgTag = document.getElementById('picture');
+            const subTag = document.getElementById('sub');
+
+            noBtn.addEventListener('click', () => {
+
+                if (currentImage < images.length - 1) {
+                    currentImage++;
+                    click++;
+                    imgTag.src = images[currentImage];
+                    subTag.src = subtitles[currentImage];
+                }
+
+                if (click === 4) {
+                    noBtn.addEventListener('mouseover', moveButton);
+                }
+
+                if (click > 4) {
+                    moveButton();
+                }
+            });
+
+            let hover = 4;
+            let pictures = 4;
+
+            function moveButton() {
+                const rect = noBtn.getBoundingClientRect();
+                console.log(`No Button Position - X: ${rect.left}px, Y: ${rect.top}px`);
+
+                hover++;
+                const width = noBtn.offsetWidth;
+                const height = noBtn.offsetHeight;
+
+                // Calculate maximum X and Y positions to keep the button within the screen
+                const maxX = Math.max(0, window.innerWidth - width - 20);  // 20px buffer
+                const maxY = Math.max(0, window.innerHeight - height - 20);
+
+
+                // Generate random X and Y positions within the screen limits
+                const x = Math.random() * maxX;
+                const y = Math.random() * maxY;
+
+                // Update the image and subtitle after a certain number of clicks
+                if (hover % 2 === 1) {
+                    pictures++;
+                    imgTag.src = images[pictures];
+                    subTag.src = subtitles[pictures];
+                }
+
+                // Update the image and subtitle after more clicks
+                if (hover > 12) {
+                    imgTag.src = images[9];
+                    subTag.src = subtitles[9];
+                }
+
+                // Update the subtitle after even more clicks
+                if (hover > 17) {
+                    subTag.src = subtitles[10];
+                }
+
+                // Move the button to the new random position
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = `${x}px`;
+                noBtn.style.top = `${y}px`;
+            }
+        </script>
+    </body>
+</html>
