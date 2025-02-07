@@ -11,9 +11,23 @@
     <body id="kbody">
         <div id="kdiv">
             <img id="keshiTxt" src="assets/keshi/text.png" alt="text">
-            <img id="tsKeshi" src="assets/keshi/keshi.jpg" alt="keshi">
+            <video autoplay muted src="assets/keshi/soft_spot.mov"></video>
+            <audio id="song" src="assets/keshi/audio_trimmed.mp3"></audio>
             <img id="yay" src="assets/keshi/yay.png" alt="yay">
-            <h2 id="lastmsg">ok thats it bebe, I love you baby hope you had fun</h2>
+            <h2 id="msg1">ok thats it bebe, I love you baby hope you had fun</h2>
+            <h2 id="msg2">follow me</h2>
+            <img id="arrow" src="assets/keshi/arrow.png" alt="arrow">
+            <img class="heart" id="heartpic" src="assets/keshi/heart.png" alt="heart">
+            <img class="heart" id="heartmsg" src="assets/keshi/heartmsg.png" alt="heart message">
         </div>
+        <iframe src="assets/keshi/silence.mp3" allow="autoplay" id="audio"></iframe>
+        <script>
+            var audio = document.getElementById("song");
+            audio.volume = 0.3;
+
+            setTimeout( function() {
+                document.getElementById('song').play();
+            }, 1300 );
+        </script>
     </body>
 </html>
